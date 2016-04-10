@@ -6,45 +6,40 @@ main()
 	int i=0,j=0;
 	int l1=0,l2=0;
 	int c=0,k=0;
-	
+	/*Finding a substring in a string*/
 	
 	printf("Enter the string\n");
 	scanf("%s",n1);
-	printf("Enter the word\n");
+	printf("Enter the word that has to be found\n");
 	scanf("%s",n2);
 	
 	l1=strlen(n1);
 	l2=strlen(n2);
+	if(l1>=l2){
+	          for(i=0;i<=l1-l2;i++){
+		                           for(j=i;j<i+l2;j++){
+		                                              if( n2[j-i]==n1[j])
+	                                                                     c++;
+                                                              else
+                                                                             c=0;
+	                                                      }                      
+	                               if(c==l2)
+	                                       {
+								            k=j-l2;
+	                                       break;
+					        }
 	
-	for(i=0;i<=l1-l2;i++)
-	{
-		for(j=i;j<i+l2;j++)
-		{
-		
-		
-		if( n2[j-i]==n1[j])
-		
-             c=1;
-        
-	    
-		else
-		   
-		    c=0;
-	}
-	if(c==1)
-	
-	break;
-	k=j;
-	
-	
-}
+	                               }      
+           }
+	if(c==l2)
+	    {
+		printf("word is a part of this string \n");
+		printf("The position of this string is %d",k+1);
+	    }
+	if(c<l2)
+	printf("word is not a part of this string \n");
 
-	if(c==1)
-	printf("word is a part of this string\n");
-	if(c==0)
-	printf("word is not a part of this string\n");
-	printf("The position of this string is %d,k\n");
-}
 
+}
 
 
